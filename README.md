@@ -20,7 +20,7 @@
 
 ## Protocols
 
-[Simple-Thing-Protocol](https://github.com/TheThingSystem/steward/wiki/Simple-Thing-Protocol)
-[P2P net from TAAS-server](https://github.com/TheThingsystem/TAAS-server)
+* [Simple-Thing-Protocol](https://github.com/TheThingSystem/steward/wiki/Simple-Thing-Protocol)
+* [P2P net from TAAS-server](https://github.com/TheThingsystem/TAAS-server)
 
 Your first step is to go to the [the wiki](https://github.com/Ignat99/msp/wiki). Enjoy!

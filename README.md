@@ -1,5 +1,13 @@
 # MSP - Minecraft system project 
 
+## Installation 
+
+* [Raspberry Pi B+](http://nodered.org/docs/hardware/raspberrypi.html)
+
+## Hardware
+
+* [A single LED](https://projects.drogon.net/raspberry-pi/gpio-examples/tux-crossing/gpio-examples-1-a-single-led/)
+
 ## Dependencies
 
 * [Node-RED - MQTT interface](https://github.com/node-red/node-red)

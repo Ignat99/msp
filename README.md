@@ -14,7 +14,8 @@
 ## Dependencies
 
 * [Node-RED - MQTT interface](https://github.com/node-red/node-red)
-* [Mosquitto - An Open Source MQTT Broker](http://mosquitto.org/)
+* [Mosquitto - An Open Source MQTT Broker](http://mosquitto.org/) 
+or [DashUI](https://github.com/hobbyquaker/DashUI)
 * [Emoncms - Open-source energy visualisation](http://emoncms.org/)
 * [Node-RED-nodes-Emoncms](https://github.com/node-red/node-red-nodes/tree/master/io/emoncms)
 

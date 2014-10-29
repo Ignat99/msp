@@ -2,6 +2,7 @@
 
 ## Installation 
 
+* [raspberrypi.org - Linux install](http://www.raspberrypi.org/documentation/installation/installing-images/linux.md)
 * [Raspberry Pi B+](http://nodered.org/docs/hardware/raspberrypi.html)
 * [Bootstrapping the Raspberry Pi](https://github.com/TheThingSystem/steward/wiki/Bootstrapping-the-Raspberry-Pi)
 

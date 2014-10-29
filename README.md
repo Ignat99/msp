@@ -10,6 +10,7 @@
 * [A single LED](https://projects.drogon.net/raspberry-pi/gpio-examples/tux-crossing/gpio-examples-1-a-single-led/)
 * [TheThingSystem - Arduino - LED](https://github.com/TheThingSystem/steward/wiki/Clients)
 * [Thing Sensor Reporting Protocol - Arduino - Weather Station](https://github.com/TheThingSystem/steward/wiki/Thing-Sensor-Reporting-Protocol)
+* [Parrot Flower Power](http://www.parrot.com/de/produkte/flower-power/)
 
 ## Dependencies
 

@@ -15,7 +15,7 @@ Insert MicroSD. Connected power. Connected network cable to router.
  
      Nmap scan report for 192.168.0.117
      Host is up (0.00050s latency).
-     MAC Address: B8:27:EB:20:25:2E (Raspberry Pi Foundation)
+     MAC Address: XX:XX:XX:XX:XX:XX (Raspberry Pi Foundation)
 
 * [SSH (SECURE SHELL)](http://www.raspberrypi.org/documentation/remote-access/ssh/)
 

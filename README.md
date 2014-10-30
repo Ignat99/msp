@@ -19,9 +19,8 @@ Insert MicroSD. Connected power. Connected network cable to router.
 
 * [SSH (SECURE SHELL)](http://www.raspberrypi.org/documentation/remote-access/ssh/)
 
-user: pi
-
-password: raspberry
+ user: pi
+ password: raspberry
 
      ssh -l pi 192.168.0.117
      sudo raspi-config

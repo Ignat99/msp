@@ -34,15 +34,16 @@ If you don't have dhcp on you router (like mobile phone), need change nameserver
 
 * [DNS setup](http://www.raspberrypi.org/forums/viewtopic.php?f=63&t=17016)
 
-     sudo nano /etc/resolv.conf
-     nameserver 8.8.8.8
-     nameserver 8.8.4.4
+
+      sudo nano /etc/resolv.conf
+      nameserver 8.8.8.8
+      nameserver 8.8.4.4
 
 * [TheThingSystem - Raspberry Pi B+](https://github.com/TheThingSystem/steward/wiki/Bootstrapping-the-Raspberry-Pi)
 
-     sudo apt-get update
 
-     sudo apt-get upgrade
+      sudo apt-get update
+      sudo apt-get upgrade
 
 * [nodered.org - Raspberry Pi B+](http://nodered.org/docs/hardware/raspberrypi.html)
 

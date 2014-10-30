@@ -1,8 +1,13 @@
 # MSP - Minecraft system project 
 
-## Installation 
+## Installation
+
+Make image of Rasbian on MicroSD for Raspberry Pi B+.
 
 * [raspberrypi.org - Linux install](http://www.raspberrypi.org/documentation/installation/installing-images/linux.md)
+
+Insert MicroSD. Connected power. Connected network cable.
+
 * [TheThingSystem - Raspberry Pi B+](https://github.com/TheThingSystem/steward/wiki/Bootstrapping-the-Raspberry-Pi)
 * [nodered.org - Raspberry Pi B+](http://nodered.org/docs/hardware/raspberrypi.html)
 

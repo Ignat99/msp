@@ -23,6 +23,8 @@ Default  username: pi and password: raspberry.
 
      ssh -l pi 192.168.0.117
      sudo raspi-config
+     
+* [Raspi wifi setup](http://www.raspberrypi.org/forums/viewtopic.php?t=26795)
 
 * [TheThingSystem - Raspberry Pi B+](https://github.com/TheThingSystem/steward/wiki/Bootstrapping-the-Raspberry-Pi)
 * [nodered.org - Raspberry Pi B+](http://nodered.org/docs/hardware/raspberrypi.html)

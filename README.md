@@ -17,7 +17,7 @@ Insert MicroSD. Connected power. Connected network cable to router.
      Host is up (0.00050s latency).
      MAC Address: B8:27:EB:20:25:2E (Raspberry Pi Foundation)
 
-[SSH (SECURE SHELL)](http://www.raspberrypi.org/documentation/remote-access/ssh/)
+* [SSH (SECURE SHELL)](http://www.raspberrypi.org/documentation/remote-access/ssh/)
 
 user: pi
 password: raspberry

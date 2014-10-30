@@ -11,7 +11,7 @@ Insert MicroSD. Connected power. Connected network cable to router.
      ifconfig | grep Bcast
           inet addr:192.168.0.103  Bcast:192.168.0.255  Mask:255.255.255.0
 
-    nmap -sn 192.168.0.103/24
+     nmap -sn 192.168.0.103/24
  
      Nmap scan report for 192.168.0.117
      Host is up (0.00050s latency).

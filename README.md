@@ -11,8 +11,9 @@ Insert MicroSD. Connected power. Connected network cable to router.
      ifconfig | grep Bcast
           inet addr:192.168.0.103  Bcast:192.168.0.255  Mask:255.255.255.0
 
+
      nmap -sn 192.168.0.103/24
- 
+
      Nmap scan report for 192.168.0.117
      Host is up (0.00050s latency).
      MAC Address: XX:XX:XX:XX:XX:XX (Raspberry Pi Foundation)
@@ -26,6 +27,7 @@ Default  username: pi and password: raspberry.
      
 * [Raspi wifi setup](http://www.raspberrypi.org/forums/viewtopic.php?t=26795)
 
+
      sudo shutdown -r now
      
 If you don't have dhcp on you router (like mobile phone), need change nameserver in /etc/resolv.conf:
@@ -36,8 +38,9 @@ If you don't have dhcp on you router (like mobile phone), need change nameserver
 
 * [TheThingSystem - Raspberry Pi B+](https://github.com/TheThingSystem/steward/wiki/Bootstrapping-the-Raspberry-Pi)
 
-      sudo apt-get update
-      sudo apt-get upgrade
+
+     sudo apt-get update
+     sudo apt-get upgrade
 
 * [nodered.org - Raspberry Pi B+](http://nodered.org/docs/hardware/raspberrypi.html)
 

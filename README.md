@@ -29,8 +29,8 @@ Default  username: pi and password: raspberry.
      sudo shutdown -r now
      
 If you don't have dhcp on you router (like mobile phone), need change nameserver in /etc/resolv.conf:
-     sudo nano /etc/resolv.conf
 
+     sudo nano /etc/resolv.conf
      nameserver 8.8.8.8
      nameserver 8.8.4.4
 

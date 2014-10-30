@@ -26,7 +26,7 @@ Default  username: pi and password: raspberry.
      sudo raspi-config
      
 * [Raspi wifi setup](http://www.raspberrypi.org/forums/viewtopic.php?t=26795)
-
+* [Raspi reboot command](http://www.raspberrypi.org/forums/viewtopic.php?f=28&t=73121)
 
      sudo shutdown -r now
      
@@ -36,12 +36,13 @@ If you don't have dhcp on you router (like mobile phone), need change nameserver
      nameserver 8.8.8.8
      nameserver 8.8.4.4
 
-* [TheThingSystem - Raspberry Pi B+](https://github.com/TheThingSystem/steward/wiki/Bootstrapping-the-Raspberry-Pi)
+* [DNS setup](http://www.raspberrypi.org/forums/viewtopic.php?f=63&t=17016)
 
      sudo apt-get update
 
      sudo apt-get upgrade
 
+* [TheThingSystem - Raspberry Pi B+](https://github.com/TheThingSystem/steward/wiki/Bootstrapping-the-Raspberry-Pi)
 * [nodered.org - Raspberry Pi B+](http://nodered.org/docs/hardware/raspberrypi.html)
 
 ## Hardware

@@ -6,7 +6,20 @@ Make image of Rasbian on MicroSD for Raspberry Pi B+.
 
 * [raspberrypi.org - Linux install](http://www.raspberrypi.org/documentation/installation/installing-images/linux.md)
 
-Insert MicroSD. Connected power. Connected network cable.
+Insert MicroSD. Connected power. Connected network cable to router.
+
+     ifconfig | grep Bcast
+          inet addr:192.168.0.103  Bcast:192.168.0.255  Mask:255.255.255.0
+
+    nmap -sn 192.168.0.103/24
+ 
+     Nmap scan report for 192.168.0.117
+     Host is up (0.00050s latency).
+     MAC Address: B8:27:EB:20:25:2E (Raspberry Pi Foundation)
+
+password: raspberry
+
+     ssh -l pi 192.168.0.117
 
 * [TheThingSystem - Raspberry Pi B+](https://github.com/TheThingSystem/steward/wiki/Bootstrapping-the-Raspberry-Pi)
 * [nodered.org - Raspberry Pi B+](http://nodered.org/docs/hardware/raspberrypi.html)

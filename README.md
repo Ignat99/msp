@@ -17,9 +17,13 @@ Insert MicroSD. Connected power. Connected network cable to router.
      Host is up (0.00050s latency).
      MAC Address: B8:27:EB:20:25:2E (Raspberry Pi Foundation)
 
+[SSH (SECURE SHELL)](http://www.raspberrypi.org/documentation/remote-access/ssh/)
+
+user: pi
 password: raspberry
 
      ssh -l pi 192.168.0.117
+     sudo raspi-config
 
 * [TheThingSystem - Raspberry Pi B+](https://github.com/TheThingSystem/steward/wiki/Bootstrapping-the-Raspberry-Pi)
 * [nodered.org - Raspberry Pi B+](http://nodered.org/docs/hardware/raspberrypi.html)

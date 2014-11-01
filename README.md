@@ -41,6 +41,8 @@ If you don't have dhcp on you router (like mobile phone), need change nameserver
      nameserver 8.8.8.8
      
      nameserver 8.8.4.4
+     
+* [Road trip raspberry pi](http://www.cyborgworkshop.org/2014/08/07/road-trip-raspberry-pi/)
 
 * [TheThingSystem - Raspberry Pi B+](https://github.com/TheThingSystem/steward/wiki/Bootstrapping-the-Raspberry-Pi)
 

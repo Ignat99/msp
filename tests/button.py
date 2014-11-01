@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # Source of program: http://sourceforge.net/p/raspberry-gpio-python/tickets/77/#85b8
-# But PIN_IN and pull_up_down = GPIO.PUD_DOWN changed to GPIO.PUD_UP
+# But PIN_IN=23 and pull_up_down = GPIO.PUD_DOWN changed to 27 and GPIO.PUD_UP
 import RPi.GPIO as GPIO
 import time
 
@@ -11,8 +11,8 @@ PIN_IN = 27
 # Use CPU name of GPIO27 (not P1-13)
 GPIO.setmode(GPIO.BCM)
 # http://elinux.org/RPi_Low-level_peripherals#Internal_Pull-Ups_.26_Pull-Downs
-# default PIN_IN set to 3.3 volt through resistance Pull-up is Min. 50K Ohm, Max 65 KOhm
-# more info look to http://raspberrypi.ru/blog/readblog/133.html 
+# Default PIN_IN set to 3.3 volt through resistance Pull-up is Min. 50K Ohm, Max 65 KOhm
+# For more info look to http://raspberrypi.ru/blog/readblog/133.html 
 GPIO.setup(PIN_IN, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 # This function we call every time, when state of PIN_IN cange by push button
@@ -24,7 +24,7 @@ def printFunction(channel):
     print('Finished callback')
 
 # http://sourceforge.net/p/raspberry-gpio-python/wiki/Inputs/
-# add falling edge detection on a PIN_IN, ignoring further edges for 300ms for switch bounce handling
+# Add falling edge detection on a PIN_IN, ignoring further edges for 300ms for switch bounce handling
 GPIO.add_event_detect(PIN_IN, GPIO.FALLING, callback=printFunction, bouncetime=300)
 
 try:

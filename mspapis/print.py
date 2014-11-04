@@ -1,7 +1,7 @@
-import output
+import mspapi
 import datetime
 
-class Print(output.Output):
+class Print(mspapi.Mspapi):
 	requiredData = []
 	optionalData = []
 	def __init__(self,data):

@@ -1,4 +1,5 @@
-#This file takes in inputs from a variety of sensor files, and outputs information to a variety of services
+#!/usr/bin/python
+#This file takes in inputs from a variety of subdevices files, and mspapi information to a variety of services
 import sys
 sys.dont_write_bytecode = True
 
@@ -45,17 +46,17 @@ for i in sensorNames:
 		#if enabled, load the plugin
 		if enabled:
 			try:
-				mod = __import__('sensors.'+filename,fromlist=['a']) #Why does this work?
+				mod = __import__('subdevices.'+filename,fromlist=['a']) #Why does this work?
 			except Exception:
 				print("Error: could not import sensor module " + filename)
 				raise
 
 			try:	
-				sensorClass = get_subclasses(mod,sensor.Sensor)
+				sensorClass = get_subclasses(mod,subdevice.Subdevice)
 				if sensorClass == None:
 					raise AttributeError
 			except Exception:
-				print("Error: could not find a subclass of sensor.Sensor in module " + filename)
+				print("Error: could not find a subclass of subdevices.Subdevice in module " + filename)
 				raise
 
 			try:	
@@ -113,17 +114,17 @@ for i in outputNames:
 		#if enabled, load the plugin
 		if enabled:
 			try:
-				mod = __import__('outputs.'+filename,fromlist=['a']) #Why does this work?
+				mod = __import__('mspapis.'+filename,fromlist=['a']) #Why does this work?
 			except Exception:
-				print("Error: could not import output module " + filename)
+				print("Error: could not import mspapi module " + filename)
 				raise
 
 			try:	
-				outputClass = get_subclasses(mod,output.Output)
+				outputClass = get_subclasses(mod,mspapi.Mspapi)
 				if outputClass == None:
 					raise AttributeError
 			except Exception:
-				print("Error: could not find a subclass of output.Output in module " + filename)
+				print("Error: could not find a subclass of mspapi.Output in module " + filename)
 				raise
 			try:	
 				reqd = outputClass.requiredData

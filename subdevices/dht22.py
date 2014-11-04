@@ -1,7 +1,7 @@
 import subdevice
 import dhtreader
 import time
-class DHT22(sensor.Sensor):
+class DHT22(subdevice.Subdevice):
 	requiredData = ["measurement","pinNumber"]
 	optionalData = ["unit"]
 	def __init__(self,data):

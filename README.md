@@ -44,12 +44,38 @@ If you don't have dhcp on you router (like mobile phone), need change nameserver
      
 * [Road trip raspberry pi](http://www.cyborgworkshop.org/2014/08/07/road-trip-raspberry-pi/)
 
-* [TheThingSystem - Raspberry Pi B+](https://github.com/TheThingSystem/steward/wiki/Bootstrapping-the-Raspberry-Pi)
+## Dependencies
 
+* [Node-RED - MQTT interface](https://github.com/node-red/node-red)
+* [Mosquitto - An Open Source MQTT Broker](http://mosquitto.org/) 
+* [Emoncms - Open-source energy visualisation](http://emoncms.org/)
+or [DashUI](https://github.com/hobbyquaker/DashUI)
+* [Node-RED-nodes-Emoncms](https://github.com/node-red/node-red-nodes/tree/master/io/emoncms)
+
+## Install MSP API
+
+    git clone https://github.com/Ignat99/msp.git
+    cd msp/
+    git fetch upstream
+    git config --global user.email "you@example.com"
+    git config --global user.name "Your Name"
+    git checkout -b my_feature
+    
+Your additions can be sent by the command:
+
+    git checkout -b feature
+    
+    
+
+## Install TheThingSystem
+
+* [TheThingSystem - Raspberry Pi B+](https://github.com/TheThingSystem/steward/wiki/Bootstrapping-the-Raspberry-Pi)
 
      sudo apt-get update
 
      sudo apt-get upgrade
+
+## Install Node-RED
 
 * [nodered.org - Raspberry Pi B+](http://nodered.org/docs/hardware/raspberrypi.html)
 
@@ -59,14 +85,6 @@ If you don't have dhcp on you router (like mobile phone), need change nameserver
 * [TheThingSystem - Arduino - LED](https://github.com/TheThingSystem/steward/wiki/Clients)
 * [Thing Sensor Reporting Protocol - Arduino - Weather Station](https://github.com/TheThingSystem/steward/wiki/Thing-Sensor-Reporting-Protocol)
 * [Parrot Flower Power](http://www.parrot.com/de/produkte/flower-power/)
-
-## Dependencies
-
-* [Node-RED - MQTT interface](https://github.com/node-red/node-red)
-* [Mosquitto - An Open Source MQTT Broker](http://mosquitto.org/) 
-* [Emoncms - Open-source energy visualisation](http://emoncms.org/)
-or [DashUI](https://github.com/hobbyquaker/DashUI)
-* [Node-RED-nodes-Emoncms](https://github.com/node-red/node-red-nodes/tree/master/io/emoncms)
 
 ## Protocols
 

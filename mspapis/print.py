@@ -6,7 +6,7 @@ class Print(mspapi.Mspapi):
 	optionalData = []
 	def __init__(self,data):
 		pass
-	def outputData(self,dataPoints):
+	def mspapiData(self,dataPoints):
 		print ""
 		print "Time: " + str(datetime.datetime.now())
 		for i in dataPoints:

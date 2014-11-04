@@ -192,7 +192,7 @@ while True:
 			data.append(dataDict)
 		working = True
 		for i in outputPlugins:
-			working = working and i.outputData(data)
+			working = working and i.mspapiData(data)
 		if working:
 			print "Uploaded successfully"
 			GPIO.output(greenPin,GPIO.HIGH)

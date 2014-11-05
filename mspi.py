@@ -6,6 +6,7 @@ sys.dont_write_bytecode = True
 import RPi.GPIO as GPIO
 import ConfigParser
 import time
+from time import sleep
 import inspect
 import os
 from sys import exit
@@ -25,6 +26,12 @@ if not os.path.isfile('subdevices.cfg'):
 sensorConfig = ConfigParser.SafeConfigParser()
 sensorConfig.read('subdevices.cfg')
 
+WDOGON = sensorConfig.getboolean("MsPi", "Watchdog")
+if WDOGON:
+		sleep(1)
+		wdog = os.open('/dev/watchdog',os.O_RDWR)
+
+
 sensorNames = sensorConfig.sections()
 
 GPIO.setwarnings(False)
@@ -32,6 +39,7 @@ GPIO.setmode(GPIO.BCM) #Use BCM GPIO numbers.
 
 sensorPlugins = []
 for i in sensorNames:
+	if (i == "MsPi"): break
 	try:	
 		try:
 			filename = sensorConfig.get(i,"filename")
@@ -173,7 +181,12 @@ redPin = mainConfig.getint("Main","redPin")
 greenPin = mainConfig.getint("Main","greenPin")
 GPIO.setup(redPin,GPIO.OUT,initial=GPIO.LOW)
 GPIO.setup(greenPin,GPIO.OUT,initial=GPIO.LOW)
-while True:
+
+try:
+    while True:
+	if WDOGON:
+		os.write(wdog,"0")
+
 	curTime = time.time()
 	if (curTime-lastUpdated)>delayTime:
 		lastUpdated = curTime
@@ -203,4 +216,8 @@ while True:
 		GPIO.output(greenPin,GPIO.LOW)
 		GPIO.output(redPin,GPIO.LOW)
 
-
+except KeyboardInterrupt:
+	if WDOGON:
+		os.write(wdog,"V")
+		os.close(wdog)
+	raise	

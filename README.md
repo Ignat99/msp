@@ -1,5 +1,10 @@
 # MSP - Minecraft system project 
 
+
+VERY IMPORTANT NOTE: THIS IS NOT A HOW-TO ARTICLE. This article explains how the author used a Raspberry Pi to control electric current. However, the author is NOT an electrician, and just because he did something doesn’t mean YOU should, particularly if you are unfamiliar with how to wire electrical devices safely. WIRING A DEVICE IMPROPERLY CAN RESULT IN FIRE, PROPERTY DAMAGE, BODILY INJURY, AND/OR DEATH! So DO NOT just blindly do what the author has done, unless you are certain you know what you are doing and are willing to take full responsibility for your own actions! This article is for INFORMATIONAL PURPOSES AND DISCUSSION ONLY, and is NOT intended to be a guide to building any device!
+
+WE ARE NOT RESPONSIBLE IF YOU ATTEMPT TO BUILD ANYTHING BASED ON WHAT YOU SEE IN THIS ARTICLE AND INJURE YOURSELF OR HAVE PROPERTY DAMAGE AS A RESULT. STOP READING THIS ARTICLE NOW IF YOU ARE UNWILLING TO TAKE FULL RESPONSIBILITY FOR YOUR OWN ACTIONS!!!! AGAIN, THIS IS ONLY TO REPORT ON WHAT THE AUTHOR OF THE ARTICLE DID, AND WE ARE NOT SUGGESTING THAT YOU DO LIKEWISE, PARTICULARLY IF YOU DO NOT FULLY UNDERSTAND AND APPRECIATE THE DANGER OF WORKING WITH LIVE ELECTRIC CURRENT! PLEASE CONSULT WITH A LICENSED ELECTRICIAN BEFORE ATTEMPTING TO BUILD ANYTHING THAT WILL UTILIZE HOUSEHOLD ELECTRICAL CURRENT!
+
 ## Installation
 
 Make image of Rasbian on MicroSD for Raspberry Pi B+.

@@ -1,3 +1,8 @@
+# http://habrahabr.ru/post/196598/
+# http://habrahabr.ru/post/208058/
+# http://www.friendlyarm.net/forum/topic/930
+# http://jacobsalmela.com/raspberry-pi-webcam-using-mjpg-streamer-over-internet/
+
 sudo apt-get install tightvncserver
 
 vncserver :1 -geometry 1200x700 -depth 16
@@ -49,7 +54,7 @@ do
 done
 avconv -r 10 -i %06d.jpg -r 10 -vcodec mjpeg -qscale 1  out.avi
 
--------------------------
+------------------------- http://habrahabr.ru/post/208058/
 
 mount -t davfs https://webdav.yandex.ru /mnt/dav -o uid=pi,gid=pi
 cd /home/pi/mjpg-streamer && ./mjpg_streamer -i "./input_uvc.so" -o "./output_http.so -w ./www"

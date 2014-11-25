@@ -19,6 +19,8 @@ fi
 
 #exit 0
 
+sudo ./network_watchdog.sh &
+
 sudo /etc/init.d/cron start
 
 sudo mount -t davfs https://webdav.yandex.ru /mnt/dav -o uid=pi,gid=pi

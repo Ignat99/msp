@@ -2,6 +2,7 @@
 # http://habrahabr.ru/post/208058/
 # http://www.friendlyarm.net/forum/topic/930
 # http://jacobsalmela.com/raspberry-pi-webcam-using-mjpg-streamer-over-internet/
+# http://robocraft.ru/blog/electronics/3130.html
 
 sudo apt-get install tightvncserver
 
@@ -64,4 +65,33 @@ curl http://localhost:8080/?action=snapshot > out.jpg
 timestamp=`stat -c %y out.jpg`
 convert out.jpg -fill black -fill white -pointsize 15 -draw  "text 5,15 '${timestamp:0:19}'" out_.jpg
 
+----------------------------------------- http://robocraft.ru/blog/electronics/3130.html
+sudo modprobe bcm2708_wdog
+sudo sh -c "echo 'bcm2708_wdog' >> /etc/modules"
+sudo nano /etc/init.d/mathkernel
+
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          mathkernel
+# Required-Start:    $syslog
+# Required-Stop:     $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: mathkernel
+# Description:       This file should be used to construct scripts to be
+#                    placed in /etc/init.d.
+### END INIT INFO
+#
+# rest of file here
+
+--------------------------------------
+
+sudo apt-get install watchdog chkconfig
+sudo chkconfig watchdog on
+
+sudo service watchdog start
+
+sudo nano /etc/watchdog.conf
+
+echo "options bcm2708_wdog nowayout=1 heartbeat=13" | sudo tee /etc/modprobe.d/watchdog.conf
 

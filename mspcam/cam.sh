@@ -12,10 +12,10 @@ foldername=$(date --rfc-3339=date)
 
 #printf "$foldername"
 
-curl http://localhost:8080/?action=snapshot > $filename
+curl -u artak:123 http://localhost:8080/?action=snapshot > $filename
 timestamp=`stat -c %y $filename`
 
-if [ -f /mnt/dav/out/$foldername ]; then
+if [ ! -f /mnt/dav/out/$foldername ]; then
   mkdir /mnt/dav/out/$foldername
 fi
 

@@ -25,7 +25,7 @@ sudo apt-get install subversion
 sudo svn co https://svn.code.sf.net/p/mjpg-streamer/code/mjpg-streamer/ mjpg-streamer
 cd mjpg-streamer
 make
-
+sudo make install
 cd ..
 
 sudo apt-get install davfs2
@@ -96,3 +96,7 @@ sudo nano /etc/watchdog.conf
 echo "options bcm2708_wdog nowayout=1 heartbeat=60" | sudo tee /etc/modprobe.d/watchdog.conf
 
 dmesg | grep watchdog
+
+------------------------------------- http://jacobsalmela.com/raspberry-pi-webcam-using-mjpg-streamer-over-internet/
+sudo chmod 755 /etc/init.d/livestream.sh
+sudo update-rc.d livestream.sh defaults

@@ -93,5 +93,6 @@ sudo service watchdog start
 
 sudo nano /etc/watchdog.conf
 
-echo "options bcm2708_wdog nowayout=1 heartbeat=13" | sudo tee /etc/modprobe.d/watchdog.conf
+echo "options bcm2708_wdog nowayout=1 heartbeat=60" | sudo tee /etc/modprobe.d/watchdog.conf
 
+dmesg | grep watchdog

@@ -100,3 +100,8 @@ dmesg | grep watchdog
 ------------------------------------- http://jacobsalmela.com/raspberry-pi-webcam-using-mjpg-streamer-over-internet/
 sudo chmod 755 /etc/init.d/livestream.sh
 sudo update-rc.d livestream.sh defaults
+
+
+--------------------------------- 200~http://freedns.afraid.org/zc.php?from=L2R5bmFtaWMv201~
+200~sudo apt-get install inadyn201~
+200~export EDITOR=gedit && sudo crontab -e201~

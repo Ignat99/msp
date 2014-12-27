@@ -1,0 +1,23 @@
+{
+    "name"          : "node-red-node-pibrella",
+    "version"       : "0.0.4",
+    "description"   : "A Node-RED node to read from and write to a PiMSP Raspberry Pi add-on board",
+    "dependencies"  : {
+    },
+    "repository" : {
+        "type":"git",
+        "url":"https://github.com/node-red/node-red-nodes/tree/master/hardware/PiMSP"
+    },
+    "license": "Apache",
+    "keywords": [ "node-red", "pibrella" ],
+    "node-red"      : {
+        "nodes"     : {
+            "pibrella": "999-rpi-pimsp.js"
+        }
+    },
+    "author": {
+        "name": "Ignat Ignatov",
+        "email": "ignat99@gmail.com",
+        "url": "http://nodered.org"
+    }
+}

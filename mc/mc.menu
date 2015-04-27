@@ -19,6 +19,57 @@ shell_patterns=0
 	test -r $I && mail root < $I
 	rm -f "$I"
 
+d       WiFi The Dynamic Host Configuration Protocol (DHCP)
+	sudo cp /home/pi/msp/mspcam/etc/network/interfaces.wifi.dhcp /etc/network/interfaces
+
+s       WiFi The Static Configuration
+	sudo cp /home/pi/msp/mspcam/etc/network/interfaces.wifi.static /etc/network/interfaces
+
+l       Install /etc/init.d/livestream.sh daemon
+	sudo cp /home/pi/msp/mspcam/etc/init.d/livestream.sh /etc/init.d/livestream.sh
+	sudo chmod +x /etc/init.d/livestream.sh
+
+i       Install work script (cam,build,watchdog,vnc,cron)
+	cp /home/pi/msp/mspcam/build.sh /home/pi/
+	chown pi:pi /home/pi/build.sh
+        cp /home/pi/msp/mspcam/cam.sh /home/pi/
+        chown pi:pi /home/pi/cam.sh
+        cp /home/pi/msp/mspcam/network_watchdog.sh /home/pi/
+        chown pi:pi /home/pi/network_watchdog.sh
+        cp /home/pi/msp/mspcam/vnc.sh /home/pi/
+        chown pi:pi /home/pi/vnc.sh
+	sudo cp /home/pi/msp/mspcam/etc/crontab /etc/crontab
+	sudo cp /home/pi/msp/mspcam/etc/rc.local /etc/rc.local
+
+p       Install package (vnc,tzdata,imagemagick,svn,mjpg-streamer)
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get install tightvncserver
+	sudo dpkg-reconfigure tzdata
+	sudo apt-get install libav-tools
+	sudo apt-get install libjpeg8-dev
+	sudo apt-get install subversion
+	cd /home/pi
+	sudo svn co https://svn.code.sf.net/p/mjpg-streamer/code/mjpg-streamer/ /home/pi/mjpg-streamer
+	cd /home/pi/mjpg-streamer
+	make
+	sudo make install
+
+f       Install davfs2 file system on Yandex cloud
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get install davfs2
+	sudo mkdir /mnt/dav
+	sudo cp /home/pi/msp/mspcam/etc/davfs2/secrets /etc/davfs2/secrets
+	sudo mount -t davfs https://webdav.yandex.ru /mnt/dav -o uid=pi,gid=pi
+
+D       Install Dyn DNS system
+	sudo apt-get update
+        sudo apt-get upgrade
+	sudo apt-get install inadyn
+	sudo cp /home/pi/msp/mspcam/etc/inadyn.conf /etc/inadyn.conf
+	sudo cp /home/pi/msp/mspcam/var/spool/cron/crontabs/root /var/spool/cron/crontabs/root
+
 =+ f \.1$ | f \.3$ | f \.4$ | f \.5$ | f \.6$ | f \.7$ | f \.8$ | f \.man$ & t r
 1       Display the file with roff -man
 	nroff -man %f | less

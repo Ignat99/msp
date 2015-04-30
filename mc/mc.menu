@@ -25,6 +25,9 @@ d       WiFi The Dynamic Host Configuration Protocol (DHCP)
 s       WiFi The Static Configuration
 	sudo cp /home/pi/msp/mspcam/etc/network/interfaces.wifi.static /etc/network/interfaces
 
+w       WPA supplicant
+	sudo cp /home/pi/msp/mspcam/etc/wpa_supplicant/wpa_supplicant.conf.wpa  /etc/wpa_supplicant/wpa_supplicant.conf
+
 l       Install /etc/init.d/livestream.sh daemon
 	sudo cp /home/pi/msp/mspcam/etc/init.d/livestream.sh /etc/init.d/livestream.sh
 	sudo chmod +x /etc/init.d/livestream.sh

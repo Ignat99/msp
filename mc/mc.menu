@@ -77,7 +77,11 @@ D       Install Dyn DNS system
 P       Install Proxy Privoxy
         sudo apt-get update
         sudo apt-get install privoxy
-	cp /home/pi/msp/mspcam/etc/privoxy/config /etc/privoxy/config
+	sudo cp /home/pi/msp/mspcam/etc/privoxy/config /etc/privoxy/config
+	IP=%{Enter IP adress}
+	cat /etc/privoxy/config | sed -e 's/'"listen-address  192.168.1.8"'/'"listen-address  $IP"'/g' >  ./config
+	sudo rm /etc/privoxy/config
+	sudo mv ./config /etc/privoxy/config
 
 =+ f \.1$ | f \.3$ | f \.4$ | f \.5$ | f \.6$ | f \.7$ | f \.8$ | f \.man$ & t r
 1       Display the file with roff -man

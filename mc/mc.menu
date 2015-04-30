@@ -19,6 +19,10 @@ shell_patterns=0
 	test -r $I && mail root < $I
 	rm -f "$I"
 
+U       Update and upgrade Cameras System
+        sudo apt-get update
+        sudo apt-get upgrade
+
 d       WiFi The Dynamic Host Configuration Protocol (DHCP)
 	sudo cp /home/pi/msp/mspcam/etc/network/interfaces.wifi.dhcp /etc/network/interfaces
 
@@ -46,7 +50,6 @@ i       Install work script (cam,build,watchdog,vnc,cron)
 
 p       Install package (vnc,tzdata,imagemagick,svn,mjpg-streamer)
 	sudo apt-get update
-	sudo apt-get upgrade
 	sudo apt-get install tightvncserver
 	sudo dpkg-reconfigure tzdata
 	sudo apt-get install libav-tools
@@ -60,7 +63,6 @@ p       Install package (vnc,tzdata,imagemagick,svn,mjpg-streamer)
 
 f       Install davfs2 file system on Yandex cloud
 	sudo apt-get update
-	sudo apt-get upgrade
 	sudo apt-get install davfs2
 	sudo mkdir /mnt/dav
 	sudo cp /home/pi/msp/mspcam/etc/davfs2/secrets /etc/davfs2/secrets
@@ -68,10 +70,14 @@ f       Install davfs2 file system on Yandex cloud
 
 D       Install Dyn DNS system
 	sudo apt-get update
-        sudo apt-get upgrade
 	sudo apt-get install inadyn
 	sudo cp /home/pi/msp/mspcam/etc/inadyn.conf /etc/inadyn.conf
 	sudo cp /home/pi/msp/mspcam/var/spool/cron/crontabs/root /var/spool/cron/crontabs/root
+
+P       Install Proxy Privoxy
+        sudo apt-get update
+        sudo apt-get install privoxy
+	cp /home/pi/msp/mspcam/etc/privoxy/config /etc/privoxy/config
 
 =+ f \.1$ | f \.3$ | f \.4$ | f \.5$ | f \.6$ | f \.7$ | f \.8$ | f \.man$ & t r
 1       Display the file with roff -man

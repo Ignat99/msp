@@ -28,15 +28,25 @@ d       WiFi The Dynamic Host Configuration Protocol (DHCP)
 
 s       WiFi The Static Configuration
 	sudo cp /home/pi/msp/mspcam/etc/network/interfaces.wifi.static /etc/network/interfaces
+	IP=%{Enter IP adress}
+	GW=%{Enter GateWay IP adress}
+        cat /etc/network/interfaces | sed -e 's/'"address 192.168.1.8"'/'"address $IP"'/g' | sed -e 's/'"gateway 192.168.1.50"'/'"gateway $GW"'/g' >  ./interfaces
+        sudo rm /etc/network/interfaces
+        sudo mv ./interfaces /etc/network/interfaces
 
 w       WPA supplicant
 	sudo cp /home/pi/msp/mspcam/etc/wpa_supplicant/wpa_supplicant.conf.wpa  /etc/wpa_supplicant/wpa_supplicant.conf
 
 l       Install /etc/init.d/livestream.sh daemon
 	sudo cp /home/pi/msp/mspcam/etc/init.d/livestream.sh /etc/init.d/livestream.sh
+        LN=%{Enter nick}
+	PW=%{Enter password}
+        cat /etc/init.d/livestream.sh | sed -e 's/'"artak:123"'/'"$LN:$PW"'/g' >  ./livestream.sh
+        sudo rm /etc/init.d/livestream.sh
+        sudo mv ./livestream.sh /etc/init.d/livestream.sh
 	sudo chmod +x /etc/init.d/livestream.sh
 
-i       Install work script (cam,build,watchdog,vnc,cron)
+i       Install work script (cam,build,watchdog,vnc,cron,rc.local)
 	cp /home/pi/msp/mspcam/build.sh /home/pi/
 	chown pi:pi /home/pi/build.sh
         cp /home/pi/msp/mspcam/cam.sh /home/pi/
@@ -47,6 +57,12 @@ i       Install work script (cam,build,watchdog,vnc,cron)
         chown pi:pi /home/pi/vnc.sh
 	sudo cp /home/pi/msp/mspcam/etc/crontab /etc/crontab
 	sudo cp /home/pi/msp/mspcam/etc/rc.local /etc/rc.local
+        LN=%{Enter nick}
+        PW=%{Enter password}
+        cat /etc/rc.local | sed -e 's/'"artak:123"'/'"$LN:$PW"'/g' >  ./rc.local 
+        sudo rm /etc/rc.local
+        sudo mv ./rc.local  /etc/rc.local
+        sudo chmod +x /etc/rc.local
 
 p       Install package (vnc,tzdata,imagemagick,svn,mjpg-streamer)
 	sudo apt-get update
@@ -66,12 +82,24 @@ f       Install davfs2 file system on Yandex cloud
 	sudo apt-get install davfs2
 	sudo mkdir /mnt/dav
 	sudo cp /home/pi/msp/mspcam/etc/davfs2/secrets /etc/davfs2/secrets
+        LN=%{Enter yandex nick}
+        PW=%{Enter yandex password}
+        cat /etc/davfs2/secrets | sed -e 's/'"nickya 123"'/'"$LN $PW"'/g' >  ./secrets
+        sudo rm /etc/davfs2/secrets
+        sudo mv ./secrets /etc/davfs2/secrets
 	sudo mount -t davfs https://webdav.yandex.ru /mnt/dav -o uid=pi,gid=pi
 
 D       Install Dyn DNS system
 	sudo apt-get update
 	sudo apt-get install inadyn
 	sudo cp /home/pi/msp/mspcam/etc/inadyn.conf /etc/inadyn.conf
+        LN=%{Enter nick}
+        PW=%{Enter password}
+	AL=%{Enter InaDyn alias (*.crabdance.com)}
+	HASH=%{Enter InaDyn hex hash}
+        cat /etc/inadyn.conf | sed -e 's/'"--username ignat99"'/'"--username $LN"'/g' | sed -e 's/'"--password 123"'/'"--password $PW"'/g' | sed -e 's/'"ZmZXU3J2NGZPTmRxQWdZZGV0U050U0xqOjEzMDM2MTIy"'/'"$HASH"'/g' | sed -e 's/'"alias ignat99.crabdance.com"'/'"$AL"'/g'  >  ./inadyn.conf
+        sudo rm /etc/inadyn.conf
+        sudo mv ./inadyn.conf /etc/inadyn.conf
 	sudo cp /home/pi/msp/mspcam/var/spool/cron/crontabs/root /var/spool/cron/crontabs/root
 
 P       Install Proxy Privoxy

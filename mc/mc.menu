@@ -35,7 +35,15 @@ s       WiFi The Static Configuration
         sudo mv ./interfaces /etc/network/interfaces
 
 w       WPA supplicant
-	sudo cp /home/pi/msp/mspcam/etc/wpa_supplicant/wpa_supplicant.conf.wpa  /etc/wpa_supplicant/wpa_supplicant.conf
+	SSID=%{Enter SSID}
+        PW=%{Enter WiFi password}
+	wpa_passphrase $SSID $PW > ./psk.conf 
+	PSK=`cat ./psk.conf | grep -v \#psk= | grep psk= | awk '{print $1}'` 2>/dev/null
+	rm ./psk.conf
+	sudo cp /home/pi/msp/mspcam/etc/wpa_supplicant/wpa_supplicant.conf  /etc/wpa_supplicant/wpa_supplicant.conf
+        sudo cat /etc/wpa_supplicant/wpa_supplicant.conf | sed -e 's/'"psk=b2a8b6f1d1cff740d784168515c0aa776f489fdbed76eb393bda1df511dc23d3"'/'"$PSK"'/g'| sed -e 's/'"amico"'/'"$SSID"'/g' >  ./wpa_supplicant.conf
+        sudo rm /etc/wpa_supplicant/wpa_supplicant.conf
+        sudo mv ./wpa_supplicant.conf  /etc/wpa_supplicant/wpa_supplicant.conf
 
 l       Install /etc/init.d/livestream.sh daemon
 	sudo cp /home/pi/msp/mspcam/etc/init.d/livestream.sh /etc/init.d/livestream.sh

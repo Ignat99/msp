@@ -92,10 +92,12 @@ f       Install davfs2 file system on Yandex cloud
 	sudo cp /home/pi/msp/mspcam/etc/davfs2/secrets /etc/davfs2/secrets
         LN=%{Enter yandex nick}
         PW=%{Enter yandex password}
+	USR=%{Enter user name of that system}
         cat /etc/davfs2/secrets | sed -e 's/'"nickya 123"'/'"$LN $PW"'/g' >  ./secrets
         sudo rm /etc/davfs2/secrets
         sudo mv ./secrets /etc/davfs2/secrets
-	sudo mount -t davfs https://webdav.yandex.ru /mnt/dav -o uid=pi,gid=pi
+	sudo chmod 0600 /etc/davfs2/secrets
+	sudo mount -t davfs https://webdav.yandex.ru /mnt/dav -o uid=$USR,gid=$USR
 
 D       Install Dyn DNS system
 	sudo apt-get update

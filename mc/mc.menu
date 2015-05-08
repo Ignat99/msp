@@ -55,19 +55,24 @@ l       Install /etc/init.d/livestream.sh daemon
 	sudo chmod +x /etc/init.d/livestream.sh
 
 i       Install work script (cam,build,watchdog,vnc,cron,rc.local)
-	cp /home/pi/msp/mspcam/build.sh /home/pi/
-	chown pi:pi /home/pi/build.sh
-        cp /home/pi/msp/mspcam/cam.sh /home/pi/
-        chown pi:pi /home/pi/cam.sh
-        cp /home/pi/msp/mspcam/network_watchdog.sh /home/pi/
-        chown pi:pi /home/pi/network_watchdog.sh
-        cp /home/pi/msp/mspcam/vnc.sh /home/pi/
-        chown pi:pi /home/pi/vnc.sh
-	sudo cp /home/pi/msp/mspcam/etc/crontab /etc/crontab
-	sudo cp /home/pi/msp/mspcam/etc/rc.local /etc/rc.local
-        LN=%{Enter nick}
-        PW=%{Enter password}
-        cat /etc/rc.local | sed -e 's/'"artak:123"'/'"$LN:$PW"'/g' >  ./rc.local 
+	LN=%{Enter mjpeg-stream nick}
+        PW=%{Enter mjpeg-stream password}
+        USR=%{Enter user name of that system}
+	cp /home/$USR/msp/mspcam/build.sh /home/$USR/
+	chown $USR:$USR /home/$USR/build.sh
+        cp /home/$USR/msp/mspcam/cam.sh /home/$USR/
+        cat /home/$USR/cam.sh | sed -e 's/'"artak:123"'/'"$LN:$PW"'/g' >  ./livestream.sh
+        chown $USR:$USR /home/$USR/cam.sh
+        cp /home/$USR/msp/mspcam/network_watchdog.sh /home/$USR/
+        chown $USR:$USR /home/$USR/network_watchdog.sh
+        cp /home/$USR/msp/mspcam/vnc.sh /home/$USR/
+        chown $USR:$USR /home/$USR/vnc.sh
+	sudo cp /home/$USR/msp/mspcam/etc/crontab /etc/crontab
+	cat /etc/crontab | sed -e 's/'"/home/pi"'/'"/home/$USR"'/g' > ./crontab
+	sudo rm /etc/crontab
+	sudo mv ./crontab /etc/crontab
+	sudo cp /home/$USR/msp/mspcam/etc/rc.local /etc/rc.local
+        cat /etc/rc.local | sed -e 's/'"artak:123"'/'"$LN:$PW"'/g'| sed -e 's/'"/home/pi"'/'"/home/$USR"'/g' >  ./rc.local 
         sudo rm /etc/rc.local
         sudo mv ./rc.local  /etc/rc.local
         sudo chmod +x /etc/rc.local

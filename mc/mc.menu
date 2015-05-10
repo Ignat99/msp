@@ -59,7 +59,18 @@ i       Install work script (cam,build,watchdog,vnc,cron,rc.local)
         PW=%{Enter mjpeg-stream password}
         USR=%{Enter user name of that system}
 	cp /home/$USR/msp/mspcam/build.sh /home/$USR/
+	cat /home/$USR/build.sh > ./build.sh
+	cat ./build.sh | sed -e 's/'"8080"'/'"8080"'/g' >  ./build0.sh
+	cat ./build.sh | sed -e 's/'"8080"'/'"8081"'/g' >  ./build1.sh
+	cat ./build.sh | sed -e 's/'"8080"'/'"8082"'/g' >  ./build2.sh
+	cat ./build.sh | sed -e 's/'"8080"'/'"8083"'/g' >  ./build3.sh
+	cat ./build.sh | sed -e 's/'"8080"'/'"80"'/g' >  ./build.sh
+	sudo rm /home/$USR/build.sh
+	sudo rm /home/$USR/build*.sh
+	sudo mv ./build.sh  /home/$USR/build.sh
+	sudo mv ./build*.sh  /home/$USR/
 	chown $USR:$USR /home/$USR/build.sh
+	chown $USR:$USR /home/$USR/build*.sh
         cp /home/$USR/msp/mspcam/cam.sh /home/$USR/
         cat /home/$USR/cam.sh | sed -e 's/'"artak:123"'/'"$LN:$PW"'/g' >  ./cam.sh
 	cat ./cam.sh | sed -e 's/'"8080"'/'"8080"'/g' >  ./cam0.sh

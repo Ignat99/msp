@@ -24,4 +24,13 @@
 # 
 # m h  dom mon dow   command
 @reboot /usr/sbin/inadyn
-
+* *   * * *  sudo /home/odroid/cam.sh
+* *   * * *  sudo /home/odroid/cam0.sh
+* *   * * *  sudo /home/odroid/cam1.sh
+* *   * * *  sudo /home/odroid/cam2.sh
+* *   * * *  sudo /home/odroid/cam3.sh
+59 23   * * *  sudo /home/odroid/build.sh
+59 23   * * *  sudo /home/odroid/build0.sh
+59 23   * * *  sudo /home/odroid/build1.sh
+59 23   * * *  sudo /home/odroid/build2.sh
+59 23   * * *  sudo /home/odroid/build3.sh

@@ -61,8 +61,18 @@ i       Install work script (cam,build,watchdog,vnc,cron,rc.local)
 	cp /home/$USR/msp/mspcam/build.sh /home/$USR/
 	chown $USR:$USR /home/$USR/build.sh
         cp /home/$USR/msp/mspcam/cam.sh /home/$USR/
-        cat /home/$USR/cam.sh | sed -e 's/'"artak:123"'/'"$LN:$PW"'/g' >  ./livestream.sh
+        cat /home/$USR/cam.sh | sed -e 's/'"artak:123"'/'"$LN:$PW"'/g' >  ./cam.sh
+	cat ./cam.sh | sed -e 's/'"8080"'/'"8080"'/g' >  ./cam0.sh
+	cat ./cam.sh | sed -e 's/'"8080"'/'"8081"'/g' >  ./cam1.sh
+	cat ./cam.sh | sed -e 's/'"8080"'/'"8082"'/g' >  ./cam2.sh
+	cat ./cam.sh | sed -e 's/'"8080"'/'"8083"'/g' >  ./cam3.sh
+	cat ./cam.sh | sed -e 's/'"8080"'/'"80"'/g' >  ./cam.sh
+	sudo rm /home/$USR/cam.sh
+	sudo rm /home/$USR/cam*.sh
+	sudo mv ./cam.sh  /home/$USR/cam.sh
+	sudo mv ./cam*.sh  /home/$USR/
         chown $USR:$USR /home/$USR/cam.sh
+	chown $USR:$USR /home/$USR/cam*.sh
         cp /home/$USR/msp/mspcam/network_watchdog.sh /home/$USR/
         chown $USR:$USR /home/$USR/network_watchdog.sh
         cp /home/$USR/msp/mspcam/vnc.sh /home/$USR/
@@ -78,15 +88,16 @@ i       Install work script (cam,build,watchdog,vnc,cron,rc.local)
         sudo chmod +x /etc/rc.local
 
 p       Install package (vnc,tzdata,imagemagick,svn,mjpg-streamer)
+	USR=%{Enter user name of that system}
 	sudo apt-get update
 	sudo apt-get install tightvncserver
 	sudo dpkg-reconfigure tzdata
 	sudo apt-get install libav-tools
 	sudo apt-get install libjpeg8-dev
 	sudo apt-get install subversion
-	cd /home/pi
-	sudo svn co https://svn.code.sf.net/p/mjpg-streamer/code/mjpg-streamer/ /home/pi/mjpg-streamer
-	cd /home/pi/mjpg-streamer
+	cd /home/$USR
+	sudo svn co https://svn.code.sf.net/p/mjpg-streamer/code/mjpg-streamer/ /home/$USR/mjpg-streamer
+	cd /home/$USR/mjpg-streamer
 	make
 	sudo make install
 

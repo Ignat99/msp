@@ -89,11 +89,11 @@ i       Install work script (cam,build,watchdog,vnc,cron,rc.local)
         cp /home/$USR/msp/mspcam/vnc.sh /home/$USR/
         chown $USR:$USR /home/$USR/vnc.sh
 	sudo cp /home/$USR/msp/mspcam/etc/crontab /etc/crontab
-	cat /etc/crontab | sed -e 's/'"/home/pi"'/'"/home/$USR"'/g' > ./crontab
+	cat /etc/crontab | sed -e 's/'"\/home\/pi"'/'"\/home\/$USR"'/g' > ./crontab
 	sudo rm /etc/crontab
 	sudo mv ./crontab /etc/crontab
 	sudo cp /home/$USR/msp/mspcam/etc/rc.local /etc/rc.local
-        cat /etc/rc.local | sed -e 's/'"artak:123"'/'"$LN:$PW"'/g'| sed -e 's/'"/home/pi"'/'"/home/$USR"'/g' >  ./rc.local 
+        cat /etc/rc.local | sed -e 's/'"artak:123"'/'"$LN:$PW"'/g'| sed -e 's/'"\/home\/pi"'/'"\/home\/$USR"'/g' >  ./rc.local 
         sudo rm /etc/rc.local
         sudo mv ./rc.local  /etc/rc.local
         sudo chmod +x /etc/rc.local

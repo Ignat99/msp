@@ -25,12 +25,14 @@ sudo /etc/init.d/cron start
 
 sudo mount -t davfs https://webdav.yandex.ru /mnt/dav -o uid=pi,gid=pi
 
-cd /home/pi/mjpg-streamer && sudo ./mjpg_streamer -i "./input_uvc.so" -o "./output_http.so -w ./www -c artak:123"
+cd /home/pi/mjpg-streamer 
+
+#&& sudo ./mjpg_streamer -i "./input_uvc.so" -o "./output_http.so -w ./www -c artak:123"
 
 #./mjpg_streamer -i "./input_uvc.so" -o "./output_file.so -f $outpdir -d $delay" -o "./output_http.so -w ./www -c artak:123"
 
-./mjpg_streamer -i "./input_uvc.so -n    -r 1280x720 -d /dev/video6" -o "./output_http.so -n -w ./www/stream0 -p 8080 -c artak:123" &
-./mjpg_streamer -i "./input_uvc.so -n    -r 1280x720 -d /dev/video7" -o "./output_http.so -n -w ./www/stream1 -p 8081 -c artak:123" &
+./mjpg_streamer -i "./input_uvc.so -n    -r 1280x720 -d /dev/video0" -o "./output_http.so -n -w ./www -p 8080 -c artak:123" &
+./mjpg_streamer -i "./input_uvc.so -n    -r 1280x720 -d /dev/video2" -o "./output_http.so -n -w ./www -p 8081 -c artak:123" &
 
 
 exit 0

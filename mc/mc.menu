@@ -134,7 +134,7 @@ D       Install Dyn DNS system
         PW=%{Enter password}
 	AL=%{Enter InaDyn alias (*.crabdance.com)}
 	HASH=%{Enter InaDyn hex hash}
-        cat /etc/inadyn.conf | sed -e 's/'"--username ignat99"'/'"--username $LN"'/g' | sed -e 's/'"--password 123"'/'"--password $PW"'/g' | sed -e 's/'"ZmZXU3J2NGZPTmRxQWdZZGV0U050U0xqOjEzMDM2MTIy"'/'"$HASH"'/g' | sed -e 's/'"alias ignat99.crabdance.com"'/'"$AL"'/g'  >  ./inadyn.conf
+        cat /etc/inadyn.conf | sed -e 's/'"--username ignat99"'/'"--username $LN"'/g' | sed -e 's/'"--password 123"'/'"--password $PW"'/g' | sed -e 's/'"ZmZXU3J2NGZPTmRxQWdZZGV0U050U0xqOjEzMDM2MTIy"'/'"$HASH"'/g' | sed -e 's/'"alias ignat99.crabdance.com"'/'"alias $AL"'/g'  >  ./inadyn.conf
         sudo rm /etc/inadyn.conf
         sudo mv ./inadyn.conf /etc/inadyn.conf
 	sudo cp /home/pi/msp/mspcam/var/spool/cron/crontabs/root /var/spool/cron/crontabs/root

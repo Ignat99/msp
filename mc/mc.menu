@@ -105,6 +105,7 @@ i       Install work script (cam,build,watchdog,vnc,cron,rc.local)
 p       Install package (vnc,tzdata,imagemagick,svn,mjpg-streamer,curl)
 	USR=%{Enter user name of that system}
 	sudo apt-get update
+	sudo apt-get install ghostscript
 	sudo apt-get install tightvncserver
 	sudo apt-get install imagemagick
 	sudo dpkg-reconfigure tzdata

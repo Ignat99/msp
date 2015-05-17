@@ -15,7 +15,7 @@ portfilename=$port$filename
 #printf "$foldername"
 
 curl -u artak:123 http://localhost:$port/?action=snapshot > $portfilename
-timestamp=`stat -c %y $filename`
+timestamp=`stat -c %y $portfilename`
 
 if [ ! -f /mnt/dav/out/$foldername ]; then
   mkdir /mnt/dav/out/$foldername

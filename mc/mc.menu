@@ -144,7 +144,7 @@ D       Install Dyn DNS system
         sudo rm /etc/inadyn.conf
         sudo mv ./inadyn.conf /etc/inadyn.conf
 	cat /home/$USR/msp/mspcam/var/spool/cron/crontabs/root | sed -e 's/'"\/home\/pi"'/'"\/home\/$USR"'/g' > ./root
-	suro rm /var/spool/cron/crontabs/root
+	sudo rm /var/spool/cron/crontabs/root
 	sudo mv ./root /var/spool/cron/crontabs/root
 
 P       Install Proxy Privoxy

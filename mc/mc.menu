@@ -71,6 +71,8 @@ i       Install work script (cam,build,watchdog,vnc,cron,rc.local)
 	sudo mv ./build*.sh  /home/$USR/
 	chown $USR:$USR /home/$USR/build.sh
 	chown $USR:$USR /home/$USR/build*.sh
+	chmod +x /home/$USR/build.sh
+	chmod +x /home/$USR/build*.sh
         cp /home/$USR/msp/mspcam/cam.sh /home/$USR/
         cat /home/$USR/cam.sh | sed -e 's/'"artak:123"'/'"$LN:$PW"'/g' >  ./cam.sh
 	cat ./cam.sh | sed -e 's/'"8080"'/'"8080"'/g' >  ./cam0.sh
@@ -84,6 +86,8 @@ i       Install work script (cam,build,watchdog,vnc,cron,rc.local)
 	sudo mv ./cam*.sh  /home/$USR/
         chown $USR:$USR /home/$USR/cam.sh
 	chown $USR:$USR /home/$USR/cam*.sh
+	chmod +x /home/$USR/cam.sh
+	chmod +x /home/$USR/cam*.sh 
         cp /home/$USR/msp/mspcam/network_watchdog.sh /home/$USR/
         chown $USR:$USR /home/$USR/network_watchdog.sh
         cp /home/$USR/msp/mspcam/vnc.sh /home/$USR/

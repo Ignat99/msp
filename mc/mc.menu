@@ -102,13 +102,14 @@ i       Install work script (cam,build,watchdog,vnc,cron,rc.local)
         sudo mv ./rc.local  /etc/rc.local
         sudo chmod +x /etc/rc.local
 
-p       Install package (vnc,tzdata,imagemagick,svn,mjpg-streamer)
+p       Install package (vnc,tzdata,imagemagick,svn,mjpg-streamer,curl)
 	USR=%{Enter user name of that system}
 	sudo apt-get update
 	sudo apt-get install tightvncserver
 	sudo dpkg-reconfigure tzdata
 	sudo apt-get install libav-tools
 	sudo apt-get install libjpeg8-dev
+	sudo apt-get install curl libcurl3
 	sudo apt-get install subversion
 	cd /home/$USR
 	sudo svn co https://svn.code.sf.net/p/mjpg-streamer/code/mjpg-streamer/ /home/$USR/mjpg-streamer

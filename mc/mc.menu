@@ -121,10 +121,10 @@ f       Install davfs2 file system on Yandex cloud
 	sudo apt-get update
 	sudo apt-get install davfs2
 	sudo mkdir /mnt/dav
-	sudo cp /home/pi/msp/mspcam/etc/davfs2/secrets /etc/davfs2/secrets
         LN=%{Enter yandex nick}
         PW=%{Enter yandex password}
 	USR=%{Enter user name of that system}
+	sudo cp /home/$USR/msp/mspcam/etc/davfs2/secrets /etc/davfs2/secrets
         cat /etc/davfs2/secrets | sed -e 's/'"nickya 123"'/'"$LN $PW"'/g' >  ./secrets
         sudo rm /etc/davfs2/secrets
         sudo mv ./secrets /etc/davfs2/secrets
@@ -134,7 +134,8 @@ f       Install davfs2 file system on Yandex cloud
 D       Install Dyn DNS system
 	sudo apt-get update
 	sudo apt-get install inadyn
-	sudo cp /home/pi/msp/mspcam/etc/inadyn.conf /etc/inadyn.conf
+	USR=%{Enter user name of that system}
+	sudo cp /home/$USR/msp/mspcam/etc/inadyn.conf /etc/inadyn.conf
         LN=%{Enter nick}
         PW=%{Enter password}
 	AL=%{Enter InaDyn alias (*.crabdance.com)}
@@ -142,7 +143,6 @@ D       Install Dyn DNS system
         cat /etc/inadyn.conf | sed -e 's/'"--username ignat99"'/'"--username $LN"'/g' | sed -e 's/'"--password 123"'/'"--password $PW"'/g' | sed -e 's/'"ZmZXU3J2NGZPTmRxQWdZZGV0U050U0xqOjEzMDM2MTIy"'/'"$HASH"'/g' | sed -e 's/'"alias ignat99.crabdance.com"'/'"alias $AL"'/g'  >  ./inadyn.conf
         sudo rm /etc/inadyn.conf
         sudo mv ./inadyn.conf /etc/inadyn.conf
-	USR=%{Enter user name of that system}
 	cat /home/$USR/msp/mspcam/var/spool/cron/crontabs/root | sed -e 's/'"\/home\/pi"'/'"\/home\/$USR"'/g' > ./root
 	suro rm /var/spool/cron/crontabs/root
 	sudo mv ./root /var/spool/cron/crontabs/root
@@ -150,7 +150,8 @@ D       Install Dyn DNS system
 P       Install Proxy Privoxy
         sudo apt-get update
         sudo apt-get install privoxy
-	sudo cp /home/pi/msp/mspcam/etc/privoxy/config /etc/privoxy/config
+	USR=%{Enter user name of that system}
+	sudo cp /home/$USR/msp/mspcam/etc/privoxy/config /etc/privoxy/config
 	IP=%{Enter IP adress}
 	cat /etc/privoxy/config | sed -e 's/'"listen-address  192.168.1.8"'/'"listen-address  $IP"'/g' >  ./config
 	sudo rm /etc/privoxy/config

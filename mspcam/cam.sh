@@ -14,8 +14,8 @@ portfilename=$port$filename
 
 #printf "$foldername"
 
-curl -u artak:123 http://localhost:$port/?action=snapshot > $portfilename
-timestamp=`stat -c %y $portfilename`
+curl -u artak:123 http://localhost:$port/?action=snapshot > /tmp/$portfilename
+timestamp=`stat -c %y /tmp/$portfilename`
 
 if [ ! -f /mnt/dav/out/$foldername ]; then
   mkdir /mnt/dav/out/$foldername
@@ -25,7 +25,9 @@ if [ ! -f /mnt/dav/out/$foldername/$port ]; then
   mkdir /mnt/dav/out/$foldername/$port
 fi
 
-convert $portfilename -fill black -fill white -pointsize 15 -draw  "text 5,15 '${timestamp:0:19}'" /mnt/dav/out/$foldername/$port/$filename.jpg
+convert /tmp/$portfilename -fill black -fill white -pointsize 15 -draw  "text 5,15 '${timestamp:0:19}'" /mnt/dav/out/$foldername/$port/$filename.jpg
 
-rm $portfilename
+rm /tmp/$portfilename
 
+sudo arecord -B --buffer-time=1000000 -f dat -r 8000 -d 60 -D plughw:1,0 /mnt/dav/out/$foldername/$port/$filename.wav
+sudo flac -f -s /mnt/dav/out/$foldername/$port/$filename.wav -o /mnt/dav/out/$foldername/$port/$filename.flac

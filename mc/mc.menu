@@ -27,7 +27,8 @@ d       WiFi The Dynamic Host Configuration Protocol (DHCP)
 	sudo cp /home/pi/msp/mspcam/etc/network/interfaces.wifi.dhcp /etc/network/interfaces
 
 s       WiFi The Static Configuration
-	sudo cp /home/pi/msp/mspcam/etc/network/interfaces.wifi.static /etc/network/interfaces
+	USR=%{Enter user name of that system}
+	sudo cp /home/$USR/msp/mspcam/etc/network/interfaces.wifi.static /etc/network/interfaces
 	IP=%{Enter IP adress}
 	GW=%{Enter GateWay IP adress}
         cat /etc/network/interfaces | sed -e 's/'"address 192.168.1.8"'/'"address $IP"'/g' | sed -e 's/'"gateway 192.168.1.50"'/'"gateway $GW"'/g' >  ./interfaces
@@ -37,10 +38,11 @@ s       WiFi The Static Configuration
 w       WPA supplicant
 	SSID=%{Enter SSID}
         PW=%{Enter WiFi password}
+	USR=%{Enter user name of that system}
 	wpa_passphrase $SSID $PW > ./psk.conf 
 	PSK=`cat ./psk.conf | grep -v \#psk= | grep psk= | awk '{print $1}'` 2>/dev/null
 	rm ./psk.conf
-	sudo cp /home/pi/msp/mspcam/etc/wpa_supplicant/wpa_supplicant.conf  /etc/wpa_supplicant/wpa_supplicant.conf
+	sudo cp /home/$USR/msp/mspcam/etc/wpa_supplicant/wpa_supplicant.conf  /etc/wpa_supplicant/wpa_supplicant.conf
         sudo cat /etc/wpa_supplicant/wpa_supplicant.conf | sed -e 's/'"psk=b2a8b6f1d1cff740d784168515c0aa776f489fdbed76eb393bda1df511dc23d3"'/'"$PSK"'/g'| sed -e 's/'"amico"'/'"$SSID"'/g' >  ./wpa_supplicant.conf
         sudo rm /etc/wpa_supplicant/wpa_supplicant.conf
         sudo mv ./wpa_supplicant.conf  /etc/wpa_supplicant/wpa_supplicant.conf
@@ -149,8 +151,11 @@ D       Install Dyn DNS system
 	sudo rm /var/spool/cron/crontabs/root
 	sudo mv ./root /var/spool/cron/crontabs/root
 
+a	Install Audio
+	apt-get install v4l-utils sox alsa-tools alsa-oss flac
+
 P       Install Proxy Privoxy
-        sudo apt-get update
+        #sudo apt-get update
         sudo apt-get install privoxy
 	USR=%{Enter user name of that system}
 	sudo cp /home/$USR/msp/mspcam/etc/privoxy/config /etc/privoxy/config
